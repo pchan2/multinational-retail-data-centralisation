@@ -75,3 +75,8 @@ class DataCleaning:
     @staticmethod
     def correct_gb_country_code(df: DataFrame, column_name: str) -> DataFrame:
         return df[column_name].apply(lambda x: 'GB' if x == 'GGB' else x)
+    
+    @staticmethod
+    def remove_integers_of_undesired_length(df: DataFrame, column_name: str, desired_length: int) -> DataFrame:
+        return df[column_name].apply(lambda x: x if len(str(x)) == desired_length else 0)
+    
