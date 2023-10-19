@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 
 from pandas.core.frame import DataFrame
 from pandas._libs.tslibs.timestamps import Timestamp
@@ -60,3 +61,17 @@ class DataCleaning:
     def remove_non_store_types(df: DataFrame, column_name: str) -> DataFrame:
         store_types = ['Local', 'Super Store', 'Mall Kiosk', 'Outlet', 'Web Portal']
         return df[column_name].apply(lambda x: x if x in store_types else '')
+    
+    @staticmethod
+    def remove_invalid_emails(df: DataFrame, column_name: str) -> DataFrame:
+        regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+        return df[column_name].apply(lambda x: x if re.fullmatch(regex, x) else '')
+    
+    @staticmethod
+    def remove_non_countries(df: DataFrame, column_name: str) -> DataFrame:
+        countries = ['Germany', 'United Kingdom', 'United States']
+        return df[column_name].apply(lambda x: x if x in countries else '')
+    
+    @staticmethod
+    def correct_gb_country_code(df: DataFrame, column_name: str) -> DataFrame:
+        return df[column_name].apply(lambda x: 'GB' if x == 'GGB' else x)
