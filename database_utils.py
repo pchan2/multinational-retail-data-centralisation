@@ -1,5 +1,6 @@
 import yaml
 
+from pandas.core.frame import DataFrame
 from sqlalchemy import create_engine
 from sqlalchemy.engine.base import Engine
 
@@ -25,3 +26,7 @@ class DatabaseConnector():
         DATABASE = db_creds['RDS_DATABASE']
         engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}")
         return engine
+    
+    def upload_to_db(self, df: DataFrame, table_name: str) -> None:
+        engine = self.init_db_engine()
+        df.to_sql(table_name, con=engine, index=True, index_label='index', if_exists='replace')
