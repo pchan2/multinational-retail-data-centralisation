@@ -19,5 +19,6 @@ class DataExtractor():
         return df
     
     def retrieve_pdf_data(self, pdf_link: str) -> DataFrame:
-        df = read_pdf(pdf_link)
+        dfs = read_pdf(pdf_link, pages='all')
+        df = pd.concat(dfs)
         return df
