@@ -27,6 +27,17 @@ class DatabaseConnector():
         engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}")
         return engine
     
+    def init_sales_data_db_engine(self) -> Engine:
+        DATABASE_TYPE = 'postgresql'
+        DBAPI = 'psycopg2'
+        ENDPOINT = 'localhost'
+        USER = 'postgres'
+        PASSWORD = '' #password
+        PORT = 5432
+        DATABASE = 'sales_data'
+        engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}")
+        return engine
+    
     def upload_to_db(self, df: DataFrame, table_name: str) -> None:
-        engine = self.init_db_engine()
+        engine = self.init_sales_data_db_engine()
         df.to_sql(table_name, con=engine, index=True, index_label='index', if_exists='replace')
