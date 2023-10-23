@@ -80,3 +80,9 @@ class DataCleaning:
     def remove_integers_of_undesired_length(df: DataFrame, column_name: str, desired_length: int) -> DataFrame:
         return df[column_name].apply(lambda x: x if len(str(x)) == desired_length else 0)
     
+    @staticmethod
+    def remove_non_card_providers(df: DataFrame, column_name: str) -> DataFrame:
+        card_providers = ['Diners Club / Carte Blanche', 'American Express', 'JCB 16 digit',
+                          'JCB 15 digit', 'Maestro', 'Mastercard', 'Discover',
+                          'VISA 19 digit', 'VISA 16 digit', 'VISA 13 digit']
+        return df[column_name].apply(lambda x: x if x in card_providers else '')
