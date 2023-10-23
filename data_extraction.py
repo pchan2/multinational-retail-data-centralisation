@@ -2,6 +2,7 @@ import pandas as pd
 
 from database_utils import DatabaseConnector
 from pandas.core.frame import DataFrame
+from tabula import read_pdf
 
 
 class DataExtractor():
@@ -15,4 +16,8 @@ class DataExtractor():
     
     def read_rds_table(self, table_name: str) -> DataFrame:
         df = pd.read_sql_table(table_name, self.engine)
+        return df
+    
+    def retrieve_pdf_data(self, pdf_link: str) -> DataFrame:
+        df = read_pdf(pdf_link)
         return df
