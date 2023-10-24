@@ -33,11 +33,12 @@ class DatabaseConnector():
         return engine
     
     def init_sales_data_db_engine(self) -> Engine:
+        db_creds = self.read_db_creds()
         DATABASE_TYPE = 'postgresql'
         DBAPI = 'psycopg2'
         ENDPOINT = 'localhost'
         USER = 'postgres'
-        PASSWORD = '' #password
+        PASSWORD = db_creds['PASSWORD']
         PORT = 5432
         DATABASE = 'sales_data'
         engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}")
