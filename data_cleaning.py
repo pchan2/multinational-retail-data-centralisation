@@ -87,3 +87,7 @@ class DataCleaning:
                           'JCB 15 digit', 'Maestro', 'Mastercard', 'Discover',
                           'VISA 19 digit', 'VISA 16 digit', 'VISA 13 digit']
         return df[column_name].apply(lambda x: x if x in card_providers else '')
+    
+    @staticmethod
+    def remove_strings_with_numbers(df: DataFrame, column_name: str) -> DataFrame:
+        return df[column_name].apply(lambda x: '' if any(char.isdigit() for char in x) else x)
