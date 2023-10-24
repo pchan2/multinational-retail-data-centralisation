@@ -25,14 +25,19 @@ class DataExtractor():
         df = pd.concat(dfs)
         return df
 
-    def list_number_of_stores(self, number_of_stores_endpoint: str) -> None:
+    def list_number_of_stores(self, number_of_stores_endpoint: str) -> int:
         # https://stackoverflow.com/questions/5517281/place-api-key-in-headers-or-url
         # Custom Header: curl -H "X-API-KEY: 6fa741de1bdd1d91830ba" https://api.mydomain.com/v1/users
         # curl -H 'x-api-key: yFBQbwXe9J3sd6zWVAMrK6lcxxr0q1lr2PT6DDMX' https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/prod/number_stores
         res = requests.get(number_of_stores_endpoint, headers=self.headers)
-        number_stores = res.json()['number_stores'] # {'statusCode': 200, 'number_stores': 451}
-        print('Number of stores:', number_stores,) 
-
-
-NUMBER_OF_STORES_ENDPOINT = 'https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/prod/number_stores'
-DataExtractor().list_number_of_stores(NUMBER_OF_STORES_ENDPOINT) # 451
+        number_stores = res.json()['number_stores']
+        return number_stores
+    
+    def retrieve_stores_data(self, retrieve_a_store_endpoint: str, number_of_stores: int) -> DataFrame:
+        data = []
+        for i in range(number_of_stores):
+            endpoint = f'{retrieve_a_store_endpoint}/{i}'
+            res = requests.get(endpoint, headers=self.headers)
+            store_data = res.json()
+            data.append(store_data)
+        return pd.DataFrame(data)
