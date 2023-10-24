@@ -11,9 +11,14 @@ class DatabaseConnector():
         print('Initialise the new instance of DatabaseConnector.')
 
     def read_db_creds(self) -> dict:
-        with open('../db_creds.yaml', 'r') as file:
-            db_creds = yaml.safe_load(file)
-            return db_creds
+        try:
+            with open('../db_creds.yaml', 'r') as file:
+                db_creds = yaml.safe_load(file)
+                return db_creds
+        except:
+            with open('db_creds.yaml', 'r') as file:
+                db_creds = yaml.safe_load(file)
+                return db_creds
 
     def init_db_engine(self) -> Engine:
         db_creds = self.read_db_creds()
