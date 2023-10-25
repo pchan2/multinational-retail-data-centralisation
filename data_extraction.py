@@ -1,4 +1,5 @@
 import boto3
+import io
 import pandas as pd
 import requests
 
@@ -43,10 +44,12 @@ class DataExtractor():
             data.append(store_data)
         return pd.DataFrame(data)
     
-    def extract_from_s3(self, s3_address: str, destination: str) -> None:
+    def extract_from_s3(self, s3_address: str) -> DataFrame:
         address_parts = s3_address.split('/')
-        source_bucket = address_parts[2]
-        source_filename_first_index = s3_address.find(address_parts[3])
-        source_filename = s3_address[source_filename_first_index:]
+        bucket = address_parts[2]
+        key_first_index = s3_address.find(address_parts[3])
+        key = s3_address[key_first_index:]       
         s3 = boto3.client('s3')
-        s3.download_file(source_bucket, source_filename, destination)
+        obj = s3.get_object(Bucket=bucket, Key=key)
+        df = pd.read_csv(io.BytesIO(obj['Body'].read()))
+        return df
