@@ -1,3 +1,4 @@
+import boto3
 import pandas as pd
 import requests
 
@@ -41,3 +42,11 @@ class DataExtractor():
             store_data = res.json()
             data.append(store_data)
         return pd.DataFrame(data)
+    
+    def extract_from_s3(self, s3_address: str, destination: str) -> None:
+        address_parts = s3_address.split('/')
+        source_bucket = address_parts[2]
+        source_filename_first_index = s3_address.find(address_parts[3])
+        source_filename = s3_address[source_filename_first_index:]
+        s3 = boto3.client('s3')
+        s3.download_file(source_bucket, source_filename, destination)
