@@ -91,3 +91,33 @@ class DataCleaning:
     @staticmethod
     def remove_strings_with_numbers(df: DataFrame, column_name: str) -> DataFrame:
         return df[column_name].apply(lambda x: '' if any(char.isdigit() for char in x) else x)
+    
+    @staticmethod
+    def remove_strings_with_invald_suffix(df: DataFrame, column_name: str) -> DataFrame:
+        # digit plus optional digits plus optional decimal plus unit e.g 102.kg or 23ml or 38g https://regexr.com/
+        PATTERN = '\d+?\.?(kg|g|ml)'
+        return df[column_name].apply(lambda x: x if re.search(PATTERN, x) else '')
+
+    @staticmethod
+    def calculate_weight_multiples(df: DataFrame, column_name: str) -> DataFrame:
+        # x plus whitespace(s) plus integer or float plus either kg, ml, g.
+        PATTERN_KG_ML = 'x +((\d+?\.?\d+?)|(\d+?))(kg|ml)'
+        PATTERN_G = 'x +((\d+?\.?\d+?)|(\d+?))g'
+        df[column_name] = df[column_name].apply(lambda x: str(float(x.split('x')[0]) * float(x.split('x')[-1][:-2])) + x[-2] if re.search(PATTERN_KG_ML, x) else x)
+        df[column_name] = df[column_name].apply(lambda x: str(float(x.split('x')[0]) * float(x.split('x')[-1][:-1])) + x[-1] if re.search(PATTERN_G, x) else x)
+        return df[column_name]
+    
+    @staticmethod
+    def convert_product_weights_to_kg(df: DataFrame, column_name: str) -> DataFrame:
+        PATTERN_KG = '\d+?\.?kg'
+        PATTERN_G = '\d+?\.?g'
+        PATTERN_ML = '\d+?\.?ml'
+        df[column_name] = df[column_name].apply(lambda x: '0' if len(x) == 0 else x)
+        df[column_name] = df[column_name].apply(lambda x: 
+                                                (x[:-2] if re.search(PATTERN_KG, x) else x))
+        df[column_name] = df[column_name].apply(lambda x: 
+                                                (str(float(x[:-1]) / 1_000) if re.search(PATTERN_G, x) else x))
+        df[column_name] = df[column_name].apply(lambda x: 
+                                                (str(float(x[:-2]) / 1_000) if re.search(PATTERN_ML, x) else x))
+        df[column_name] = df[column_name].apply(lambda x: float(x))
+        return df[column_name]
