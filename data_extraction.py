@@ -51,5 +51,5 @@ class DataExtractor():
         key = s3_address[key_first_index:]       
         s3 = boto3.client('s3')
         obj = s3.get_object(Bucket=bucket, Key=key)
-        df = pd.read_csv(io.BytesIO(obj['Body'].read()))
+        df = pd.read_csv(io.BytesIO(obj['Body'].read()), skipinitialspace=True)
         return df
