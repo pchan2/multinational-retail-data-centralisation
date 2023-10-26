@@ -93,7 +93,7 @@ class DataCleaning:
         return df[column_name].apply(lambda x: '' if any(char.isdigit() for char in x) else x)
     
     @staticmethod
-    def remove_strings_with_invald_suffix(df: DataFrame, column_name: str) -> DataFrame:
+    def remove_strings_with_invald_weight_suffix(df: DataFrame, column_name: str) -> DataFrame:
         # digit plus optional digits plus optional decimal plus unit e.g 102.kg or 23ml or 38g https://regexr.com/
         PATTERN = '\d+?\.?(kg|g|ml)'
         return df[column_name].apply(lambda x: x if re.search(PATTERN, x) else '')
@@ -121,3 +121,8 @@ class DataCleaning:
                                                 (str(float(x[:-2]) / 1_000) if re.search(PATTERN_ML, x) else x))
         df[column_name] = df[column_name].apply(lambda x: float(x))
         return df[column_name]
+    
+    @staticmethod
+    def remove_invalid_product_statuses(df: DataFrame, column_name: str) -> DataFrame:
+        statuses = ['Still_avaliable', 'Removed']
+        return df[column_name].apply(lambda x: x if x in statuses else '')
