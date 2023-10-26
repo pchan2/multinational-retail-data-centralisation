@@ -8,12 +8,11 @@ from pandas.core.frame import DataFrame
 from tabula import read_pdf
 
 
-class DataExtractor():
-    
-    def __init__(self) -> None:
-        self.database_connector = DatabaseConnector()
-        self.engine = self.database_connector.init_db_engine()
-        self.headers = {'x-api-key': 'yFBQbwXe9J3sd6zWVAMrK6lcxxr0q1lr2PT6DDMX'}
+class DataExtractor:
+
+    database_connector = DatabaseConnector()
+    engine = database_connector.init_db_engine()
+    headers = {'x-api-key': 'yFBQbwXe9J3sd6zWVAMrK6lcxxr0q1lr2PT6DDMX'}
     
     def list_db_tables(self) -> list:
         return self.engine.table_names()

@@ -5,10 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.engine.base import Engine
 
 
-class DatabaseConnector():
-    
-    def __init__(self) -> None:
-        print('Initialise the new instance of DatabaseConnector.')
+class DatabaseConnector:
 
     def read_db_creds(self) -> dict:
         try:
