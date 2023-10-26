@@ -126,3 +126,8 @@ class DataCleaning:
     def remove_invalid_product_statuses(df: DataFrame, column_name: str) -> DataFrame:
         statuses = ['Still_avaliable', 'Removed']
         return df[column_name].apply(lambda x: x if x in statuses else '')
+    
+    @staticmethod
+    def remove_non_time_periods(df: DataFrame, column_name: str) -> DataFrame:
+        time_periods = ['Evening', 'Morning', 'Midday', 'Late_Hours']
+        return df[column_name].apply(lambda x: x if x in time_periods else '')
