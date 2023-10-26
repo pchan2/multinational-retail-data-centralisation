@@ -35,7 +35,7 @@ class DataCleaning:
     @staticmethod
     def remove_values_with_non_alpha_prefix(df: DataFrame, column_name: str) -> DataFrame:
         has_correct_prefix = lambda x: (x[:2].isalpha() and x[2] == '-') or (x[:3].isalpha() and x[3] == '-')
-        return df[column_name].apply(lambda y: y if has_correct_prefix(y) else '')
+        return df[column_name].apply(lambda x: x if has_correct_prefix(x) else '')
     
     # add dash in index 2. end result should be total length = 11, that's 2 + 1 + 8
     @staticmethod
