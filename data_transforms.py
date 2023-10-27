@@ -1,5 +1,6 @@
-import pandas as pd
 import re
+
+import pandas as pd
 
 from pandas.core.frame import DataFrame
 from pandas._libs.tslibs.timestamps import Timestamp

@@ -1,5 +1,6 @@
-import boto3
 import io
+
+import boto3
 import pandas as pd
 import requests
 
