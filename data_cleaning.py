@@ -8,7 +8,7 @@ class DataCleaning(DataTransforms):
     '''
     def clean_user_data(self, df: DataFrame) -> DataFrame:
         '''
-        This function is used to clean the legacy_users dataframe from the RDS_HOST endpoint.
+        This method is used to clean the legacy_users dataframe from the RDS_HOST endpoint.
 
         - The RDS_HOST is accessed via the DatabaseConnector.init_db_engine method.
         - The legacy_users dataframe is populated with DataExtractor.read_rds_table.
@@ -36,7 +36,7 @@ class DataCleaning(DataTransforms):
 
     def clean_card_data(self, df: DataFrame) -> DataFrame:
         '''
-        This function is used to clean the card_details dataframe from card_details.pdf.
+        This method is used to clean the card_details dataframe from card_details.pdf.
 
         The card_details dataframe is populated with the DatabaseConnector.retrieve_pdf_data method.
 
@@ -61,7 +61,7 @@ class DataCleaning(DataTransforms):
 
     def clean_store_data(self, df: DataFrame) -> DataFrame:
         '''
-        This function is used to clean the store_details dataframe from the store_details endpoint.
+        This method is used to clean the store_details dataframe from the store_details endpoint.
 
         The store_details dataframe is populated with the DatabaseConnector.retrieve_stores_data method.
 
@@ -91,7 +91,7 @@ class DataCleaning(DataTransforms):
 
     def convert_product_weights(self, df: DataFrame) -> DataFrame:
         '''
-        This function is used to clean the weight column from the products.csv S3 address.
+        This method is used to clean the weight column from the products.csv S3 address.
 
         The products dataframe is populated with the DatabaseConnector.extract_from_s3 method.
 
@@ -109,7 +109,7 @@ class DataCleaning(DataTransforms):
 
     def clean_products_data(self, df: DataFrame) -> DataFrame:
         '''
-        This function is used to clean the products dataframe from the products.csv S3 address.
+        This method is used to clean the products dataframe from the products.csv S3 address.
 
         The products dataframe is populated with the DatabaseConnector.extract_from_s3 method.
 
@@ -133,7 +133,7 @@ class DataCleaning(DataTransforms):
 
     def clean_orders_data(self, df: DataFrame) -> DataFrame:
         '''
-        This function is used to clean the orders_table dataframe from the RDS_HOST.
+        This method is used to clean the orders_table dataframe from the RDS_HOST.
 
         - The RDS_HOST is accessed via the DatabaseConnector.init_db_engine method.
         - The orders_table dataframe is populated with DataExtractor.read_rds_table.
