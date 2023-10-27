@@ -6,6 +6,7 @@ import requests
 
 from database_utils import DatabaseConnector
 from pandas.core.frame import DataFrame
+from sqlalchemy.engine.base import Engine
 from tabula import read_pdf
 
 
@@ -20,9 +21,9 @@ class DataExtractor:
         headers (dict): the HTTP header with the x-api-key for
         authentication.
     '''
-    database_connector = DatabaseConnector()
-    engine = database_connector.init_db_engine()
-    headers = {'x-api-key': 'yFBQbwXe9J3sd6zWVAMrK6lcxxr0q1lr2PT6DDMX'}
+    database_connector: DatabaseConnector = DatabaseConnector()
+    engine: Engine = database_connector.init_db_engine()
+    headers: dict = {'x-api-key': 'yFBQbwXe9J3sd6zWVAMrK6lcxxr0q1lr2PT6DDMX'}
 
     def list_db_tables(self) -> list:
         '''
