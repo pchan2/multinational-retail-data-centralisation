@@ -87,6 +87,9 @@ class DataCleaning(DataTransforms):
         Returns:
             df (DataFrame): the dataframe of store_details.
         '''
+        # Remove null values at the start to prevent TypeError or
+        # AttributeError in subsequent executions.
+        df = self.remove_null_values(df)
         df['longitude'] = self.remove_alphanumerical_values(df, 'longitude')
         df['locality'] = self.remove_strings_with_numbers(df, 'locality')
         df['store_code'] = self.remove_values_with_non_alpha_prefix(
@@ -144,6 +147,9 @@ class DataCleaning(DataTransforms):
         Returns:
             df (DataFrame): the dataframe of products.
         '''
+        # Remove null values at the start to prevent TypeError or
+        # AttributeError in subsequent executions.
+        df = self.remove_null_values(df)
         df['weight'] = self.convert_product_weights(df)
         df['product_price'] = self.remove_alphanumerical_values(
             df, 'product_price')
