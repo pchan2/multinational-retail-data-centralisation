@@ -36,10 +36,10 @@ class DataCleaning(DataTransforms):
         df['join_date'] = self.remove_non_datetime_values(df, 'join_date')
         df['join_date'] = self.format_datetime_values(df, 'join_date')
         del df['index']
-        df = df[((df['email_address'] != '') & (df['address'] != '') &
-                 (df['country'] != '') & (df['phone_number'] != ''))]
         df = df.drop_duplicates()
         df = self.remove_null_values(df)
+        df = df[((df['email_address'] != '') & (df['address'] != '') &
+                 (df['country'] != '') & (df['phone_number'] != ''))]
         return df
 
     def clean_card_data(self, df: DataFrame) -> DataFrame:
@@ -68,9 +68,9 @@ class DataCleaning(DataTransforms):
         df['card_number'] = self.remove_non_digit_values(df, 'card_number')
         df['card_number'] = df['card_number'].replace('', 0)
         df['card_number'] = df['card_number'].astype(int)
-        df = df[df['card_number'] != 0]
         df = df.drop_duplicates()
         df = self.remove_null_values(df)
+        df = df[df['card_number'] != 0]
         return df
 
     def clean_store_data(self, df: DataFrame) -> DataFrame:
@@ -102,10 +102,10 @@ class DataCleaning(DataTransforms):
         df['continent'] = self.remove_non_alpha_values(df, 'continent')
         df['continent'] = df['continent'].replace('eeEurope', 'Europe')
         df['continent'] = df['continent'].replace('eeAmerica', 'America')
-        df = df[(df['address'] != '') & (df['store_code'] != '')]
         del df['index']
         df = df.drop_duplicates()
         df = self.remove_null_values(df)
+        df = df[(df['address'] != '') & (df['store_code'] != '')]
         return df
 
     def convert_product_weights(self, df: DataFrame) -> DataFrame:
@@ -152,10 +152,10 @@ class DataCleaning(DataTransforms):
         df['date_added'] = self.format_datetime_values(df, 'date_added')
         df['removed'] = self.remove_invalid_product_statuses(df, 'removed')
         del df['Unnamed: 0']
-        df = df[(df['product_name'] != '') & (df['EAN'] != '') &
-                (df['uuid'] != '') & (df['product_code'] != '')]
         df = df.drop_duplicates()
         df = self.remove_null_values(df)
+        df = df[(df['product_name'] != '') & (df['EAN'] != '') &
+                (df['uuid'] != '') & (df['product_code'] != '')]
         return df
 
     def clean_orders_data(self, df: DataFrame) -> DataFrame:
