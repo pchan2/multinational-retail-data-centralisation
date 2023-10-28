@@ -179,3 +179,25 @@ class DataCleaning(DataTransforms):
         df = df.drop_duplicates()
         df = self.remove_null_values(df)
         return df
+    
+    def clean_date_times_data(self, df: DataFrame) -> DataFrame:
+        '''
+        This method is used to clean the date_times dataframe from
+        date_details.json.
+
+        Args:
+            df (DataFrame): the dataframe of date_times.
+
+        Returns:
+            df (DataFrame): the dataframe of date_times.
+        '''
+        df['timestamp'] = self.remove_alphanumerical_values(df, 'timestamp')
+        df['month'] = self.remove_non_digit_values(df, 'month')
+        df['year'] = self.remove_non_digit_values(df, 'year')
+        df['day'] = self.remove_non_digit_values(df, 'day')
+        df['time_period'] = self.remove_non_time_periods(df, 'time_period')
+        df = df.drop_duplicates()
+        df = self.remove_null_values(df)
+        df = df[(df['timestamp'] != '') | (df['month'] != '') | 
+                (df['year'] != '') | (df['day'] != '')]
+        return df
