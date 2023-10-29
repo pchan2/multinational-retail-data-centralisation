@@ -16,6 +16,7 @@ FROM dim_products; -- 11
 SELECT MAX(LENGTH(weight_class))
 FROM dim_products; -- 14
 
+-- Set new data types
 ALTER TABLE dim_products
 ALTER COLUMN product_price TYPE FLOAT USING (NULLIF(product_price, '')::FLOAT),
     ALTER COLUMN weight TYPE FLOAT USING weight::FLOAT,
