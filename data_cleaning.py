@@ -156,6 +156,7 @@ class DataCleaning(DataTransforms):
         df['category'] = self.remove_alphanumerical_values(df, 'category')
         df['date_added'] = self.remove_non_datetime_values(df, 'date_added')
         df['date_added'] = self.format_datetime_values(df, 'date_added')
+        df['uuid'] = self.remove_alphanumerical_values(df, 'uuid')
         df['removed'] = self.remove_invalid_product_statuses(df, 'removed')
         del df['Unnamed: 0']
         df = df.drop_duplicates()
