@@ -61,35 +61,35 @@ In this project, the full ETL is performed.
 **multinational_retail_data_centralisation**  
 │  
 ├── **checks**  
-│$\qquad$├── card_details.ipynb  
-│$\qquad$├── date_times.ipynb  
-│$\qquad$├── legacy_store.ipynb  
-│$\qquad$├── legacy_users.ipynb  
-│$\qquad$├── orders_table.ipynb  
-│$\qquad$├── products.ipynb  
-│$\qquad$└── store_details.ipynb  
+│&emsp;&emsp;├── card_details.ipynb  
+│&emsp;&emsp;├── date_times.ipynb  
+│&emsp;&emsp;├── legacy_store.ipynb  
+│&emsp;&emsp;├── legacy_users.ipynb  
+│&emsp;&emsp;├── orders_table.ipynb  
+│&emsp;&emsp;├── products.ipynb  
+│&emsp;&emsp;└── store_details.ipynb  
 │  
 ├── **ETL**  
-│$\qquad$├── card_details.ipynb  
-│$\qquad$├── date_times.ipynb  
-│$\qquad$├── legacy_users.ipynb  
-│$\qquad$├── orders_table.ipynb  
-│$\qquad$├── products.ipynb  
-│$\qquad$└── store_details.ipynb  
+│&emsp;&emsp;├── card_details.ipynb  
+│&emsp;&emsp;├── date_times.ipynb  
+│&emsp;&emsp;├── legacy_users.ipynb  
+│&emsp;&emsp;├── orders_table.ipynb  
+│&emsp;&emsp;├── products.ipynb  
+│&emsp;&emsp;└── store_details.ipynb  
 │  
 ├── **notes**  
-│$\qquad$└── steps_to_clean_data.ipynb  
+│&emsp;&emsp;└── steps_to_clean_data.ipynb  
 │  
 ├── **sales_data_db_sql**  
-│$\qquad$├── 1_orders_table.sql  
-│$\qquad$├── 2_dim_users.sql  
-│$\qquad$├── 3_dim_store.sql  
-│$\qquad$├── 4_dim_products.sql  
-│$\qquad$├── 5_dim_products.sql  
-│$\qquad$├── 6_dim_date_times.sql  
-│$\qquad$├── 7_dim_cards_details.sql  
-│$\qquad$├── 8_add_pk_to_dim_tables.sql  
-│$\qquad$└── 9_add_fk_to_orders_table.sql  
+│&emsp;&emsp;├── 1_orders_table.sql  
+│&emsp;&emsp;├── 2_dim_users.sql  
+│&emsp;&emsp;├── 3_dim_store.sql  
+│&emsp;&emsp;├── 4_dim_products.sql  
+│&emsp;&emsp;├── 5_dim_products.sql  
+│&emsp;&emsp;├── 6_dim_date_times.sql  
+│&emsp;&emsp;├── 7_dim_cards_details.sql  
+│&emsp;&emsp;├── 8_add_pk_to_dim_tables.sql  
+│&emsp;&emsp;└── 9_add_fk_to_orders_table.sql  
 │  
 ├── data_cleaning.py  
 ├── data_extraction.py  
