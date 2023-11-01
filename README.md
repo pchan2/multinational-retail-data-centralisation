@@ -58,49 +58,50 @@ In this project, the full ETL is performed.
 
 ## File structure of the project
 
-**multinational_retail_data_centralisation**
-│
-├── **checks**
-│   ├── carddetails.ipynb
-│   ├── date_times.ipynb
-│   ├── legacy_store.ipynb
-│   ├── legacy_users.ipynb
-│   ├── orders_table.ipynb
-│   ├── products.ipynb
-│   └── store_details.ipynb
-│ 
-├── **ETL**
-│   ├── carddetails.ipynb
-│   ├── date_times.ipynb
-│   ├── legacy_users.ipynb
-│   ├── orders_table.ipynb
-│   ├── products.ipynb
-│   └── store_details.ipynb
-│
-├── **notes**
-│   └── steps_to_clean_data.ipynb
-│
-├── **sales_data_db_sql**
-│   ├── 1_orders_table.sql
-│   ├── 2_dim_users.sql
-│   ├── 3_dim_store.sql
-│   ├── 4_dim_products.sql
-│   ├── 5_dim_products.sql
-│   ├── 6_dim_date_times.sql
-│   ├── 7_dim_cards_details.sql
-│   ├── 8_add_pk_to_dim_tables.sql
-│   └── 9_add_fk_to_orders_table.sql
-│
-├── data_cleaning.py
-├── data_extraction.py
-├── data_transforms.py
-├── database_utils.py
-└── README.md
+**multinational_retail_data_centralisation**  
+│  
+├── **checks**  
+│   ├── carddetails.ipynb  
+│   ├── date_times.ipynb  
+│   ├── legacy_store.ipynb  
+│   ├── legacy_users.ipynb  
+│   ├── orders_table.ipynb  
+│   ├── products.ipynb  
+│   └── store_details.ipynb  
+│  
+├── **ETL**  
+│   ├── carddetails.ipynb  
+│   ├── date_times.ipynb  
+│   ├── legacy_users.ipynb  
+│   ├── orders_table.ipynb  
+│   ├── products.ipynb  
+│   └── store_details.ipynb  
+│  
+├── **notes**  
+│   └── steps_to_clean_data.ipynb  
+│  
+├── **sales_data_db_sql**  
+│   ├── 1_orders_table.sql  
+│   ├── 2_dim_users.sql  
+│   ├── 3_dim_store.sql  
+│   ├── 4_dim_products.sql  
+│   ├── 5_dim_products.sql  
+│   ├── 6_dim_date_times.sql  
+│   ├── 7_dim_cards_details.sql  
+│   ├── 8_add_pk_to_dim_tables.sql  
+│   └── 9_add_fk_to_orders_table.sql  
+│  
+├── data_cleaning.py  
+├── data_extraction.py  
+├── data_transforms.py  
+├── database_utils.py  
+└── README.md  
 
 ### Directories
 - The *checks* directory is for preliminary checks on individual methods and notes.
 - The *ETL* directory is the refactored version of *checks*.
 - The *sales_data_db_sql* directory has SQL query statements. 
+- The *notes* directory has study notes on data cleaning.
 
 ## License
 
