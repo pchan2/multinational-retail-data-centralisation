@@ -26,57 +26,7 @@ The orders table is the single source of truth in the star schema, connecting to
 In this project, the full ETL is performed.
 
 ## Learnings
-https://regexr.com/
-https://www.asciitable.com/
 
-# https://stackoverflow.com/questions/5517281/place-api-key-in-headers-or-url
-        # Custom Header: curl -H "X-API-KEY: 6fa741de1bdd1d91830ba" https://api.mydomain.com/v1/users
-        # curl -H 'x-api-key: yFBQbwXe9J3sd6zWVAMrK6lcxxr0q1lr2PT6DDMX' https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/prod/number_stores
-
-organise imports https://stackoverflow.com/questions/7374100/making-python-imports-more-structured
-    # 1. standard libraries alphabetical with 'imports' before 'from' like this:
-    import csv
-    import logging
-    from collections import defaultdict
-    from datetime import date
-    #(blank line)
-
-    # 2. third party packages alphabetical with imports first
-    # next is the third party packages (also alphabetical as described above)
-    import numpy as  np 
-    import pandas as pd
-    from statsmodels import api as sm
-    #(blank line again)
-
-    # 3. your own stuff (also alphabetical) 
-    from my_other_folder import my_other_file
-
-https://varunver.wordpress.com/2020/07/07/postgres-change-column-from-type-text-to-uuid/
-PostgreSQL: Change type from text to uuid
-
-https://www.postgresqltutorial.com/postgresql-string-functions/postgresql-trim-function/
-LTRIM, RTRIM< BTRIM
-
-https://gis.stackexchange.com/questions/365860/postgresql-postgis-insert-values-in-a-new-column-with-a-case-statement
-INSERT INTO + CASE STATEMENT
-
-https://www.devart.com/dbforge/sql/sqlcomplete/sql-case-expression.html
-INSERT INTO / UPDATE + CASE STATEMENT
-
-Use double quotation marks when the column name is all uppercase.
-SELECT "EAN" FROM dim_products;
-
-https://stackoverflow.com/questions/48877158/postgresql-9-4-alter-column-text-to-boolean-with-values
-alter text to boolean postgresql 
-
-https://dba.stackexchange.com/questions/108227/postgres-converting-into-nulls
-alter empty string to date type
-
-https://www.commandprompt.com/education/postgresql-primary-key-a-complete-guide/
-add primary key
-
-https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-foreign-key/
-add foreign key
 
 ## Milestones
 - [x] Set up the environment.
@@ -111,35 +61,35 @@ add foreign key
 **multinational_retail_data_centralisation**  
 │  
 ├── **checks**  
-│&emsp;&emsp;├── card_details.ipynb  
-│&emsp;&emsp;├── date_times.ipynb  
-│&emsp;&emsp;├── legacy_store.ipynb  
-│&emsp;&emsp;├── legacy_users.ipynb  
-│&emsp;&emsp;├── orders_table.ipynb  
-│&emsp;&emsp;├── products.ipynb  
-│&emsp;&emsp;└── store_details.ipynb  
+│$\qquad$├── card_details.ipynb  
+│$\qquad$├── date_times.ipynb  
+│$\qquad$├── legacy_store.ipynb  
+│$\qquad$├── legacy_users.ipynb  
+│$\qquad$├── orders_table.ipynb  
+│$\qquad$├── products.ipynb  
+│$\qquad$└── store_details.ipynb  
 │  
 ├── **ETL**  
-│&emsp;&emsp;├── card_details.ipynb  
-│&emsp;&emsp;├── date_times.ipynb  
-│&emsp;&emsp;├── legacy_users.ipynb  
-│&emsp;&emsp;├── orders_table.ipynb  
-│&emsp;&emsp;├── products.ipynb  
-│&emsp;&emsp;└── store_details.ipynb  
+│$\qquad$├── card_details.ipynb  
+│$\qquad$├── date_times.ipynb  
+│$\qquad$├── legacy_users.ipynb  
+│$\qquad$├── orders_table.ipynb  
+│$\qquad$├── products.ipynb  
+│$\qquad$└── store_details.ipynb  
 │  
 ├── **notes**  
-│&emsp;&emsp;└── steps_to_clean_data.ipynb  
+│$\qquad$└── steps_to_clean_data.ipynb  
 │  
 ├── **sales_data_db_sql**  
-│&emsp;&emsp;├── 1_orders_table.sql  
-│&emsp;&emsp;├── 2_dim_users.sql  
-│&emsp;&emsp;├── 3_dim_store.sql  
-│&emsp;&emsp;├── 4_dim_products.sql  
-│&emsp;&emsp;├── 5_dim_products.sql  
-│&emsp;&emsp;├── 6_dim_date_times.sql  
-│&emsp;&emsp;├── 7_dim_cards_details.sql  
-│&emsp;&emsp;├── 8_add_pk_to_dim_tables.sql  
-│&emsp;&emsp;└── 9_add_fk_to_orders_table.sql  
+│$\qquad$├── 1_orders_table.sql  
+│$\qquad$├── 2_dim_users.sql  
+│$\qquad$├── 3_dim_store.sql  
+│$\qquad$├── 4_dim_products.sql  
+│$\qquad$├── 5_dim_products.sql  
+│$\qquad$├── 6_dim_date_times.sql  
+│$\qquad$├── 7_dim_cards_details.sql  
+│$\qquad$├── 8_add_pk_to_dim_tables.sql  
+│$\qquad$└── 9_add_fk_to_orders_table.sql  
 │  
 ├── data_cleaning.py  
 ├── data_extraction.py  
