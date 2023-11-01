@@ -61,35 +61,35 @@ In this project, the full ETL is performed.
 **multinational_retail_data_centralisation**  
 │  
 ├── **checks**  
-│   ├── carddetails.ipynb  
-│   ├── date_times.ipynb  
-│   ├── legacy_store.ipynb  
-│   ├── legacy_users.ipynb  
-│   ├── orders_table.ipynb  
-│   ├── products.ipynb  
-│   └── store_details.ipynb  
+│$\qquad$├── card_details.ipynb  
+│$\qquad$├── date_times.ipynb  
+│$\qquad$├── legacy_store.ipynb  
+│$\qquad$├── legacy_users.ipynb  
+│$\qquad$├── orders_table.ipynb  
+│$\qquad$├── products.ipynb  
+│$\qquad$└── store_details.ipynb  
 │  
 ├── **ETL**  
-│   ├── carddetails.ipynb  
-│   ├── date_times.ipynb  
-│   ├── legacy_users.ipynb  
-│   ├── orders_table.ipynb  
-│   ├── products.ipynb  
-│   └── store_details.ipynb  
+│$\qquad$├── card_details.ipynb  
+│$\qquad$├── date_times.ipynb  
+│$\qquad$├── legacy_users.ipynb  
+│$\qquad$├── orders_table.ipynb  
+│$\qquad$├── products.ipynb  
+│$\qquad$└── store_details.ipynb  
 │  
 ├── **notes**  
-│   └── steps_to_clean_data.ipynb  
+│$\qquad$└── steps_to_clean_data.ipynb  
 │  
 ├── **sales_data_db_sql**  
-│   ├── 1_orders_table.sql  
-│   ├── 2_dim_users.sql  
-│   ├── 3_dim_store.sql  
-│   ├── 4_dim_products.sql  
-│   ├── 5_dim_products.sql  
-│   ├── 6_dim_date_times.sql  
-│   ├── 7_dim_cards_details.sql  
-│   ├── 8_add_pk_to_dim_tables.sql  
-│   └── 9_add_fk_to_orders_table.sql  
+│$\qquad$├── 1_orders_table.sql  
+│$\qquad$├── 2_dim_users.sql  
+│$\qquad$├── 3_dim_store.sql  
+│$\qquad$├── 4_dim_products.sql  
+│$\qquad$├── 5_dim_products.sql  
+│$\qquad$├── 6_dim_date_times.sql  
+│$\qquad$├── 7_dim_cards_details.sql  
+│$\qquad$├── 8_add_pk_to_dim_tables.sql  
+│$\qquad$└── 9_add_fk_to_orders_table.sql  
 │  
 ├── data_cleaning.py  
 ├── data_extraction.py  
