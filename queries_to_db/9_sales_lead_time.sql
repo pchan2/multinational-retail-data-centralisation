@@ -35,7 +35,7 @@ WITH cte_order_timestamp AS (
     FROM dim_date_times
     ORDER BY order_timestamp
 ),
-cte_lead_order_time AS (
+cte_order_lead_time AS (
     SELECT year,
         AGE(
             LEAD(order_timestamp) OVER (
@@ -48,7 +48,7 @@ cte_lead_order_time AS (
 )
 SELECT year,
     AVG(difference) AS actual_time_taken
-FROM cte_lead_order_time
+FROM cte_order_lead_time
 GROUP BY year
 ORDER BY actual_time_taken DESC
 LIMIT 5;
