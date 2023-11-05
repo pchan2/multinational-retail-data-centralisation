@@ -1,6 +1,7 @@
 -- Which German store type is selling the most?
 
--- The sales team is looking to expand their territory in Germany. Determine which type of store is generating the most sales in Germany.
+-- The sales team is looking to expand their territory in Germany. Determine 
+-- which type of store is generating the most sales in Germany.
 
 -- The query will return:
 

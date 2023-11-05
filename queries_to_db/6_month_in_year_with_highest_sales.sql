@@ -1,6 +1,7 @@
 -- Which month in each year produced the highest cost of sales?
 
--- The company stakeholders want assurances that the company has been doing well recently.
+-- The company stakeholders want assurances that the company has been doing well 
+-- recently.
 
 -- Find which months in which years have had the most sales historically.
 
