@@ -25,8 +25,10 @@ SELECT store_type,
         2
     ) AS total_sales
 FROM orders_table
-    JOIN dim_store_details ON dim_store_details.store_code = orders_table.store_code
-    JOIN dim_products ON dim_products.product_code = orders_table.product_code
+    JOIN dim_store_details 
+        ON dim_store_details.store_code = orders_table.store_code
+    JOIN dim_products 
+        ON dim_products.product_code = orders_table.product_code
 GROUP BY dim_store_details.store_type
 ORDER BY total_sales DESC;
 
@@ -38,8 +40,10 @@ WITH cte_total_sales_by_store_type AS (
             2
         ) AS total_sales
     FROM orders_table
-        JOIN dim_store_details ON dim_store_details.store_code = orders_table.store_code
-        JOIN dim_products ON dim_products.product_code = orders_table.product_code
+        JOIN dim_store_details 
+            ON dim_store_details.store_code = orders_table.store_code
+        JOIN dim_products 
+            ON dim_products.product_code = orders_table.product_code
     GROUP BY dim_store_details.store_type
 )
 SELECT store_type,
