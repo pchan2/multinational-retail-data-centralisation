@@ -107,7 +107,7 @@ class DataCleaning(DataTransforms):
         del df['index']
         df = df.drop_duplicates()
         df = self.remove_null_values(df)
-        df = df[df['store_code'] != '']
+        df = df[(df['address'] != '') | (df['store_code'] != '')]
         return df
 
     def convert_product_weights(self, df: DataFrame) -> DataFrame:
