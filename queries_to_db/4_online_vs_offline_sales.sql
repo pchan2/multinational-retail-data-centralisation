@@ -37,6 +37,7 @@ SELECT COUNT(*) AS numbers_of_sales,
     SUM(product_quantity),
     location
 FROM orders_table
-    JOIN cte_store_details ON cte_store_details.store_code = orders_table.store_code
+    JOIN cte_store_details
+        ON cte_store_details.store_code = orders_table.store_code
 GROUP BY cte_store_details.location
 ORDER BY numbers_of_sales;
