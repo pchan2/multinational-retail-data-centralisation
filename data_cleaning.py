@@ -5,9 +5,8 @@ from pandas.core.frame import DataFrame
 class DataCleaning(DataTransforms):
     '''
     This class contains class methods that clean a specific dataframe or
-    column.
+    column. It inherits the helper methods from the `DataTransforms` class.
     '''
-
     def clean_user_data(self, df: DataFrame) -> DataFrame:
         '''
         This method is used to clean the legacy_users dataframe from the 
@@ -108,7 +107,7 @@ class DataCleaning(DataTransforms):
         del df['index']
         df = df.drop_duplicates()
         df = self.remove_null_values(df)
-        df = df[(df['address'] != '') & (df['store_code'] != '')]
+        df = df[df['store_code'] != '']
         return df
 
     def convert_product_weights(self, df: DataFrame) -> DataFrame:
