@@ -26,13 +26,46 @@ The orders table is the single source of truth in the star schema, connecting to
 In this project, the full ETL is performed.
 
 ## Learnings
-
+- [https://regexr.com/](https://regexr.com/)
+- [https://www.asciitable.com/](https://www.asciitable.com/)
+- [place-api-key-in-headers-or-url](https://stackoverflow.com/questions/5517281/place-api-key-in-headers-or-url)
+    - To access data that requires an API Key, run:  
+      `curl -H "X-API-KEY: <Example API Key 6fa741de1bdd1d91830ba>" <Example End Point `
+      `https://api.mydomain.com/v1/users>`
+- [making-python-imports-more-structured](https://stackoverflow.com/questions/7374100/making-python-imports-more-structured)
+    1. standard libraries alphabetical with 'imports' before 'from' like this:  
+        import csv  
+        import logging  
+        from collections import defaultdict  
+        from datetime import date  
+        #(blank line)
+    2. third party packages alphabetical with imports first:  
+        import numpy as  np  
+        import pandas as pd  
+        from statsmodels import api as sm  
+        #(blank line again)
+    3. your own stuff (also alphabetical):  
+        from my_other_folder import my_other_file
+- [postgres-change-column-from-type-text-to-uuid](https://varunver.wordpress.com/2020/07/07/postgres-change-column-from-type-text-to-uuid/)
+- [LTRIM, RTRIM, BTRIM trim functions](https://www.postgresqltutorial.com/postgresql-string-functions/postgresql-trim-function/)
+- [INSERT INTO + CASE STATEMENT](https://gis.stackexchange.com/questions/365860/postgresql-postgis-insert-values-in-a-new-column-with-a-case-statement)
+- [INSERT INTO / UPDATE + CASE STATEMENT](https://www.devart.com/dbforge/sql/sqlcomplete/sql-case-expression.html)
+- Use double quotation marks when the column name is:.
+    - All uppercase `SELECT "EAN" FROM dim_products;`
+    - Complex `SELECT example_col AS "percentage(%)"`
+- [alter-column-text-to-boolean](https://stackoverflow.com/questions/48877158/postgresql-9-4-alter-column-text-to-boolean-with-values)
+- [Alter empty string to date type](https://dba.stackexchange.com/questions/108227/postgres-converting-into-nulls)
+- [Add primary key](https://www.commandprompt.com/education/postgresql-primary-key-a-complete-guide/)
+- [Add foreign key](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-foreign-key/)
+- [OVER () function](https://www.postgresql.org/docs/current/tutorial-window.html)
+- [Cast as timestamp](https://www.rudderstack.com/guides/queries-casting-postgresql/)
+- [AGE() function to calculate the difference of timestamps](https://learnsql.com/cookbook/how-to-calculate-the-difference-between-two-timestamps-in-postgresql/)
 
 ## Milestones
 - [x] Set up the environment.
 - [x] Extract and clean the data from the data sources.
-- [ ] Create the dataase schema.
-- [ ] Querying the data.
+- [x] Create the database schema.
+- [x] Querying the data.
 
 ## Installation
 
@@ -80,6 +113,17 @@ In this project, the full ETL is performed.
 ├── **notes**  
 │&emsp;&emsp;└── steps_to_clean_data.ipynb  
 │  
+├── **queries_to_db**  
+│&emsp;&emsp;├── 1_total_no_stores.sql  
+│&emsp;&emsp;├── 2_locations_with_most_stores.sql  
+│&emsp;&emsp;├── 3_months_with_highest_sales.sql  
+│&emsp;&emsp;├── 4_online_vs_offline_sales.sql  
+│&emsp;&emsp;├── 5_sales_percentage_by_store_type.sql  
+│&emsp;&emsp;├── 6_month_in_year_with_highest_sales.sql  
+│&emsp;&emsp;├── 7_staff_headcount.sql  
+│&emsp;&emsp;├── 8_german_store_types_with_most_sales.sql  
+│&emsp;&emsp;└── 9_sales_lead_time.sql  
+│  
 ├── **sales_data_db_sql**  
 │&emsp;&emsp;├── 1_orders_table.sql  
 │&emsp;&emsp;├── 2_dim_users.sql  
@@ -109,8 +153,17 @@ The MIT License (MIT)
 
 Copyright (c) 2023 Patrick Chan
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+associated documentation files (the "Software"), to deal in the Software without restriction, 
+including without limitation the rights to use, copy, modify, merge, publish, distribute, 
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is 
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial 
+portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT 
+NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT 
+OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
