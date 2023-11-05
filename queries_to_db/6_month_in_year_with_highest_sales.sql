@@ -22,7 +22,8 @@
 +-------------+------+-------+
 
 SELECT ROUND(
-        SUM(product_price * product_quantity)::NUMERIC
+        SUM(product_price * product_quantity)::NUMERIC,
+        2
     ) AS total_sales,
     year,
     month
