@@ -28,7 +28,8 @@ SELECT ROUND(
     year,
     month
 FROM orders_table
-    JOIN dim_store_details ON dim_store_details.store_code = orders_table.store_code
+    JOIN dim_store_details
+        ON dim_store_details.store_code = orders_table.store_code
     JOIN dim_products ON dim_products.product_code = orders_table.product_code
     JOIN dim_date_times ON dim_date_times.date_uuid = orders_table.date_uuid
 GROUP BY year,
