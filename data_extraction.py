@@ -22,7 +22,7 @@ class DataExtractor:
         authentication.
     '''
     database_connector: DatabaseConnector = DatabaseConnector()
-    engine: Engine = database_connector.init_db_engine()
+    engine: Engine = database_connector.init_db_engine('rds_creds')
     headers: dict = {'x-api-key': 'yFBQbwXe9J3sd6zWVAMrK6lcxxr0q1lr2PT6DDMX'}
 
     def list_db_tables(self) -> list:

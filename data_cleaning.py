@@ -10,9 +10,9 @@ class DataCleaning(DataTransforms):
     def clean_user_data(self, df: DataFrame) -> DataFrame:
         '''
         This method is used to clean the legacy_users dataframe from the 
-        DS_HOST endpoint.
+        RDS endpoint.
 
-        - The RDS_HOST is accessed via the
+        - The RDS endpoint is accessed via the
           DatabaseConnector.init_db_engine method.
         - The legacy_users dataframe is populated with
           DataExtractor.read_rds_table.
@@ -167,9 +167,9 @@ class DataCleaning(DataTransforms):
     def clean_orders_data(self, df: DataFrame) -> DataFrame:
         '''
         This method is used to clean the orders_table dataframe from the
-        RDS_HOST.
+        RDS endpoint.
 
-        - The RDS_HOST is accessed via the 
+        - The RDS endpoint is accessed via the 
           DatabaseConnector.init_db_engine method.
         - The orders_table dataframe is populated with 
           DataExtractor.read_rds_table.
