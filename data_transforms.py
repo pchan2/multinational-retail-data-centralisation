@@ -23,15 +23,16 @@ class DataTransforms:
         Returns:
             df (DataFrame): the dataframe.
         '''
+        NULL_VALUES = ['NULL', 'Null', 'None', 'N/A']
+        for nv in NULL_VALUES:
+            df = df.replace(to_replace=nv, value='')
         df = df.fillna('')
-        df = df.replace(to_replace='None', value='')
-        df = df.replace(to_replace='Null', value='')
-        df = df.replace(to_replace='NULL', value='')
-        df = df.replace(to_replace='N/A', value='')
         return df
 
     @staticmethod
-    def remove_alphanumerical_values(df: DataFrame, column_name: str) -> DataFrame:
+    def remove_alphanumerical_values(
+        df: DataFrame,
+        column_name: str) -> DataFrame:
         '''
         This static method is used to remove alphanumerical values from 
         the ``column_name`` dataframe.
@@ -75,8 +76,9 @@ class DataTransforms:
         return df[column_name].apply(lambda x: x if x.isalpha() else '')
 
     @staticmethod
-    def remove_values_with_non_alpha_prefix(df: DataFrame, 
-                                            column_name: str) -> DataFrame:
+    def remove_values_with_non_alpha_prefix(
+        df: DataFrame, 
+        column_name: str) -> DataFrame:
         '''
         This static method is used to remove values with a 
         non-alphabetical prefix from the ``column_name`` dataframe.
@@ -106,8 +108,10 @@ class DataTransforms:
                                      x if has_correct_prefix(x) else '')
 
     @staticmethod
-    def remove_strings_of_undesired_length(df: DataFrame, column_name: str, 
-                                           desired_length: int) -> DataFrame:
+    def remove_strings_of_undesired_length(
+        df: DataFrame, 
+        column_name: str, 
+        desired_length: int) -> DataFrame:
         '''
         This static method is used to remove strings of undesired length 
         from the ``column_name`` dataframe.
@@ -154,8 +158,9 @@ class DataTransforms:
         return df[column_name].apply(lambda x: x if x.isdigit() else '')
 
     @staticmethod
-    def remove_non_datetime_values(df: DataFrame, 
-                                   column_name: str) -> DataFrame:
+    def remove_non_datetime_values(
+        df: DataFrame, 
+        column_name: str) -> DataFrame:
         '''
         This static method is used to remove non-datetime values from 
         the ``column_name`` dataframe.
@@ -298,8 +303,9 @@ class DataTransforms:
         return df[column_name].apply(lambda x: 'GB' if x == 'GGB' else x)
 
     @staticmethod
-    def remove_non_card_providers(df: DataFrame, 
-                                  column_name: str) -> DataFrame:
+    def remove_non_card_providers(
+        df: DataFrame, 
+        column_name: str) -> DataFrame:
         '''
         This static method is used to remove non-card-providers from the 
         ``column_name`` dataframe.
@@ -326,8 +332,9 @@ class DataTransforms:
                                      x if x in card_providers else '')
 
     @staticmethod
-    def remove_strings_with_numbers(df: DataFrame, 
-                                    column_name: str) -> DataFrame:
+    def remove_strings_with_numbers(
+        df: DataFrame, 
+        column_name: str) -> DataFrame:
         '''
         This static method is used to remove strings with numbers from 
         the ``column_name`` dataframe.
@@ -353,8 +360,9 @@ class DataTransforms:
             lambda x: '' if any(char.isdigit() for char in x) else x)
 
     @staticmethod
-    def remove_strings_with_invald_weight_suffix(
-        df: DataFrame, column_name: str) -> DataFrame:
+    def remove_strings_with_invalid_weight_suffix(
+        df: DataFrame,
+        column_name: str) -> DataFrame:
         '''
         This static method is used to remove strings with invalid weight 
         suffix from the ``column_name`` dataframe.
@@ -384,8 +392,9 @@ class DataTransforms:
                                      x if re.search(PATTERN, x) else '')
 
     @staticmethod
-    def calculate_weight_multiples(df: DataFrame, 
-                                   column_name: str) -> DataFrame:
+    def calculate_weight_multiples(
+        df: DataFrame, 
+        column_name: str) -> DataFrame:
         '''
         This static method is used to calculate the total weights of 
         each row in the ``column_name`` dataframe.
@@ -419,8 +428,9 @@ class DataTransforms:
         return df[column_name]
 
     @staticmethod
-    def convert_product_weights_to_kg(df: DataFrame, 
-                                      column_name: str) -> DataFrame:
+    def convert_product_weights_to_kg(
+        df: DataFrame, 
+        column_name: str) -> DataFrame:
         '''
         This static method is used to convert the weights to floats in 
         kg in the ``column_name`` dataframe.
@@ -458,8 +468,9 @@ class DataTransforms:
         return df[column_name]
 
     @staticmethod
-    def remove_invalid_product_statuses(df: DataFrame, 
-                                        column_name: str) -> DataFrame:
+    def remove_invalid_product_statuses(
+        df: DataFrame, 
+        column_name: str) -> DataFrame:
         '''
         This static method is used to remove invalud product statuses 
         from the ``column_name`` dataframe.
@@ -482,8 +493,9 @@ class DataTransforms:
         return df[column_name].apply(lambda x: x if x in statuses else '')
 
     @staticmethod
-    def remove_non_time_periods(df: DataFrame, 
-                                column_name: str) -> DataFrame:
+    def remove_non_time_periods(
+        df: DataFrame, 
+        column_name: str) -> DataFrame:
         '''
         This static method is used to remove non-time-periods from the 
         ``column_name`` dataframe.
