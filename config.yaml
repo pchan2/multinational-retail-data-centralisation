@@ -1,0 +1,5 @@
+PDF_FILE: https://data-handling-public.s3.eu-west-1.amazonaws.com/card_details.pdf
+JSON_FILE: https://data-handling-public.s3.eu-west-1.amazonaws.com/date_details.json
+S3_ADDRESS: s3://data-handling-public/products.csv
+NUMBER_OF_STORES_ENDPOINT: https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/prod/number_stores
+RETRIEVE_A_STORE_ENDPOINT: https://aqj7u5id95.execute-api.eu-west-1.amazonaws.com/prod/store_details
