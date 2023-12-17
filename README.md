@@ -70,9 +70,9 @@ In this project, the full ETL is performed.
 ## Installation
 
 - [Python3](https://www.python.org/downloads/)
-- [Pandas] (https://pandas.pydata.org/docs/getting_started/install.html)
+- [Pandas](https://pandas.pydata.org/docs/getting_started/install.html)
     - Run `pip install pandas`
-- [boto3] (https://pypi.org/project/boto3/)
+- [boto3](https://pypi.org/project/boto3/)
     - Run `pip install boto3`
 - Create `db_creds.yaml` in the parent directory to have credentials as per the `DatabaseConnector`
   class.
